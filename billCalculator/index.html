@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalkulator rachunków</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC&family=Roboto:wght@300;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/1e2b8f248a.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="top">
+        <h1>Kalkulator rabatów</h1>
+        <p>
+          Oblicz swój rabat za pomocą&nbsp;&nbsp;
+          <i class="fa-solid fa-percent fa-bounce fa-xl"></i>
+        </p>
+      </div>
+      <div class="bottom">
+        <label for="price">Cena produktu</label>
+        <input type="number" id="price" />
+        <label for="things">Ilość produktów</label>
+        <input type="number" id="things" />
+        <label for="discount">Rabat %</label>
+        <select id="discount">
+          <option value="0" disabled selected>Wybierz zniżkę:</option>
+          <option value="0.05">5%</option>
+          <option value="0.1">10%</option>
+          <option value="0.15">15%</option>
+          <option value="0.2">20%</option>
+          <option value="0.25">25%</option>
+          <option value="0.3">30%</option>
+          <option value="0.35">35%</option>
+          <option value="0.4">40%</option>
+          <option value=".45">45%</option>
+          <option value="0.5">50%</option>
+          <option value="0.55">55%</option>
+          <option value="0.6">60%</option>
+        </select>
+
+        <button class="count">Oblicz</button>
+        <p class="error"></p>
+        <p class="cost-info">
+          Cena produktu po obniżce: <span class="cost"></span> zł
+        </p>
+      </div>
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
