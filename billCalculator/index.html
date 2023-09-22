@@ -26,12 +26,13 @@
         </p>
       </div>
       <div class="bottom">
-        <label for="price">Cena produktu</label>
-        <input type="number" id="price" />
-        <label for="things">Ilość produktów</label>
-        <input type="number" id="things" />
-        <label for="discount">Rabat %</label>
-        <select id="discount">
+        <label for="price">Cena produktu [zł]</label>
+        <input type="number" id="price" placeholder="wpisz cenę np. 50..." />
+        <label for="things">Ilość produktów [szt.]</label>
+        <input type="number" id="things" placeholder="wpisz ilość..."/>
+        <label for="discount">Rabat [%]</label>
+        <input type="number" id="discount" placeholder="wpisz % rabatu..."/>
+        <!-- <select id="discount">
           <option value="0" disabled selected>Wybierz zniżkę:</option>
           <option value="0.05">5%</option>
           <option value="0.1">10%</option>
@@ -51,7 +52,7 @@
           <option value="0.8">80%</option>
           <option value="0.9">90%</option>
           <option value="0.95">95%</option>
-        </select>
+        </select> -->
 
         <button class="count">Oblicz</button>
         <p class="error"></p>
