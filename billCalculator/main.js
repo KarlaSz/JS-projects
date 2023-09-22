@@ -18,10 +18,10 @@ const checkBill = () => {
 
 const countDiscount = () => {
   const newPrice = parseFloat(price.value) //zmieniamy stringa na number
-  const newThings = parseFloat(things.value)
-  const newDis = parseFloat(discount.value)
+  const newThings = parseInt(things.value) //ParseInt zwraca liczbe calkowita
+  const newDis = parseFloat(discount.value) //ParseFloat zwraca liczbe z ulamkami po przecinku
 
-  const sum = newPrice * newThings - newPrice * newDis / 100 * newThings
+  const sum = newPrice * newThings - ((newPrice * newDis) / 100) * newThings
   costInfo.style.display = 'block'
 
   cost.textContent = sum.toFixed(2)
