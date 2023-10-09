@@ -40,7 +40,7 @@ body {
 .ball-img img {
   position: absolute;
   top: 30px;
-  left: 390px;
+  left: 385px;
   /* transform: translate(-50%, -50%); */
   width: 200px;
   cursor: pointer;
