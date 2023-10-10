@@ -79,16 +79,19 @@ body {
 .question-area .answer {
   margin-top: 20px;
   font-size: 30px;
+  margin-bottom: 20px;
+  color: #fff;
 }
 
 .question-area .answer span {
   font-weight: bold;
+  color: #0db0c3;
 }
 
 .question-area .error {
   font-weight: bold;
   font-size: 30px;
-  color: beige;
+  color: #0cdff7;
 }
 
 .shake-ball {
