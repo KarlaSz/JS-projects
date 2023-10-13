@@ -27,12 +27,14 @@ header {
 }
 
 header h1 {
+  color: var(--second-color);
   margin-bottom: 10px;
   font-size: 64px;
   font-weight: 200;
 }
 
 header p {
+  color: var(--second-color);
   font-size: 24px;
 }
 
@@ -43,6 +45,7 @@ main {
 }
 
 h2.title {
+  color: var(--second-color);
   margin-bottom: 30px;
   text-align: center;
   text-transform: uppercase;
@@ -95,6 +98,7 @@ h2.title {
 }
 
 .transaction-name {
+  color: var(--second-color);
   font-size: 18px;
 }
 
@@ -124,6 +128,7 @@ h2.title {
 }
 
 .available-money {
+  color: var(--second-color);
   margin-top: 10px;
   text-align: center;
   font-size: 60px;
@@ -180,7 +185,7 @@ h2.title {
 }
 .color-buttons .dark {
   background: var(--second-color);
-  border: 1px solid var(--first-color);
+  /*  border: 1px solid var(--first-color); */
 }
 
 .add-transaction-panel {

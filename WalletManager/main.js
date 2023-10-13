@@ -20,7 +20,7 @@ let root = document.documentElement
 let ID = 0
 let categoryIcon
 let selectedCategory
-let mooneyArr = [0]
+let moneyArr = [0]
 
 const showPanel = () => {
   addTransactionPanel.style.display = 'flex'
@@ -53,7 +53,7 @@ const createNewTransaction = () => {
   const newTransaction = document.createElement('div')
 
   newTransaction.classList.add('transaction')
-  newTransaction.setAttribute('ide', ID)
+  newTransaction.setAttribute('id', ID)
 
   checkCategory(selectedCategory)
 
@@ -71,8 +71,9 @@ const createNewTransaction = () => {
     : expensesSection.appendChild(newTransaction) &&
       newTransaction.classList.add('expense')
 
-  mooneyArr.push(parseFloat(amountInput.value))
+  moneyArr.push(parseFloat(amountInput.value))
 
+  countMoney(moneyArr)
   closePanel()
   ID++
   clearInputs()
@@ -81,6 +82,8 @@ const createNewTransaction = () => {
 const selectCategory = () => {
   selectedCategory = categorySelect.options[categorySelect.selectedIndex].text
 }
+
+//funkcja sprawdzajaca kategorie zeby przypisac odpowiednia ikone
 
 const checkCategory = transaction => {
   switch (transaction) {
@@ -102,6 +105,51 @@ const checkCategory = transaction => {
   }
 }
 
+//funkcja dodawania srodkow
+const countMoney = money => {
+  const newMoney = money.reduce((a, b) => a + b)
+  availableMoney.textContent = `${newMoney}zł`
+}
+
+//funkcja usuwania pojedynczych transakcji
+const deleteTransaction = id => {
+  const transactionToDelete = document.getElementById(id)
+
+  const transactionAmount = parseFloat(
+    transactionToDelete.childNodes[3].innerText
+  )
+  const indexOfTransaction = moneyArr.indexOf(transactionAmount)
+  moneyArr.splice(indexOfTransaction, 1)
+
+  transactionToDelete.classList.contains('income')
+    ? incomeSection.removeChild(transactionToDelete)
+    : expensesSection.removeChild(transactionToDelete)
+
+  countMoney(moneyArr)
+}
+
+const deleteAllTransactions = () => {
+  incomeSection.innerHTML = ' <h3>Przychód:</h3>'
+  expensesSection.innerHTML = ' <h3>Wydatki:</h3>'
+  availableMoney.textContent = '0zł'
+  moneyArr = [0]
+}
+
+//funkcja dark-light mode
+const changeStyletoLight = () => {
+  root.style.setProperty('--first-color', '#f9f9f9')
+  root.style.setProperty('--second-color', '#14161f')
+  root.style.setProperty('--border-color', 'rgba(0, 0, 0, 0.2)')
+}
+const changeStyletoDark = () => {
+  root.style.setProperty('--first-color', '#14161f')
+  root.style.setProperty('--second-color', '#f9f9f9')
+  root.style.setProperty('--border-color', 'rgba(255, 255, 255, 0.4)')
+}
+
 addTransactionBtn.addEventListener('click', showPanel)
 cancelBtn.addEventListener('click', closePanel)
 saveBtn.addEventListener('click', checkForm)
+deleteAllBtn.addEventListener('click', deleteAllTransactions)
+lightlBtn.addEventListener('click', changeStyletoLight)
+darkBtn.addEventListener('click', changeStyletoDark)
